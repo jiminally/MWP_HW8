@@ -1,22 +1,171 @@
-<html>
-    <head>
-        <title>KHU's blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">KHU's blog</a></h1>
-        </div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꽃 - 김춘수</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        <div>
-            <p>published: 14.06.2025, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #fdf6ee;
+            background-image:
+                radial-gradient(ellipse at 20% 20%, rgba(255, 220, 180, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 190, 160, 0.2) 0%, transparent 60%);
+            min-height: 100vh;
+            padding: 40px 60px;
+            color: #3a2e28;
+        }
 
-        <div>
-            <p>published: 14.06.2025, 12:15</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-    </body>
+        h1 {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #5c3d2e;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #d4a882;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '🌸';
+            position: absolute;
+            right: 0;
+            font-size: 22px;
+        }
+
+        .content-wrap {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        section {
+            width: 55%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            padding: 30px 36px;
+            box-shadow: 0 4px 20px rgba(180, 120, 80, 0.1);
+            border: 1px solid rgba(212, 168, 130, 0.3);
+        }
+
+        section h2 {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 17px;
+            text-align: center;
+            color: #7a5040;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px dashed #d4a882;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+        section p {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 15px;
+            line-height: 2.2;
+            color: #4a3628;
+            margin-bottom: 18px;
+        }
+
+        section p:last-child {
+            margin-bottom: 0;
+        }
+
+        aside {
+            flex: 1;
+            background: rgba(255, 240, 225, 0.7);
+            border-radius: 16px;
+            padding: 26px 28px;
+            border: 1px solid rgba(212, 168, 130, 0.4);
+            box-shadow: 0 4px 16px rgba(180, 120, 80, 0.08);
+        }
+
+        aside h3 {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 15px;
+            color: #7a5040;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #d4a882;
+            letter-spacing: 1px;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            font-size: 14px;
+            color: #5c3d2e;
+            padding: 6px 0;
+            border-bottom: 1px dotted rgba(212, 168, 130, 0.4);
+            padding-left: 14px;
+            position: relative;
+        }
+
+        aside ul li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #d4a882;
+            font-size: 10px;
+            top: 8px;
+        }
+
+        aside ul li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            margin-top: 36px;
+            border-top: 1px solid #d4a882;
+            padding-top: 14px;
+            font-size: 13px;
+            color: #a07860;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>꽃 - 김춘수</h1>
+
+    <div class="content-wrap">
+        <section>
+            <h2>&lt; 꽃 &gt;<br>김춘수</h2>
+            <p>내가 그의 이름을 불러 주기 전에는<br>그는 다만<br>하나의 몸짓에 지나지 않았다.</p>
+            <p>내가 그의 이름을 불러 주었을 때<br>그는 나에게로 와서<br>꽃이 되었다.</p>
+            <p>내가 그의 이름을 불러 준 것처럼<br>나의 이 빛깔과 향기에 알맞은<br>누가 나의 이름을 불러 다오.<br>그에게로 가서 나도<br>그의 꽃이 되고 싶다.</p>
+            <p>우리들은 모두<br>무엇이 되고 싶다.<br>너는 나에게 나는 너에게<br>잊혀지지 않는 하나의 눈짓이 되고 싶다.</p>
+        </section>
+
+        <aside>
+            <h3>김춘수 시인의 다른 시</h3>
+            <ul>
+                <li>꽃을 위한 서시</li>
+                <li>부다페스트에서의 소녀의 죽음</li>
+                <li>샤갈의 마을에 내리는 눈</li>
+                <li>처용단장</li>
+                <li>기(旗)</li>
+                <li>꽃의 소묘</li>
+                <li>소녀</li>
+                <li>인동을 보며</li>
+                <li>달개비꽃</li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>©모바일웹서비스프로그래밍 ©2026</footer>
+</body>
 </html>
