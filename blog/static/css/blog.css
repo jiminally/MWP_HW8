@@ -94,3 +94,7 @@ h1, h2, h3, h4 {
     background-color: #a0674a;
     color: white;
 }
+
+.intruder-image-list {
+    object-fit: cover;
+}
