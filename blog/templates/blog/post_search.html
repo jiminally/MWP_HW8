@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="search-page">
+    <form class="search-form" method="GET" action="{% url 'post_search' %}">
+        <span class="glyphicon glyphicon-search"></span>
+        <input type="search" name="q" value="{{ query }}" placeholder="검색어를 입력하세요" autofocus>
+    </form>
+
+    {% if query %}
+    <p class="search-summary">총 <strong>{{ posts|length }}개</strong>의 포스트를 찾았습니다.</p>
+    <div class="post-grid">
+        {% for post in posts %}
+        <a class="post-card" href="{% url 'post_detail' pk=post.pk %}">
+            {% if post.image and post.image.name != 'intruder_image/default_error.png' %}
+            <img src="{{ post.image.url }}" class="post-card-image" alt="{{ post.title }}">
+            {% else %}
+            <div class="post-card-image image-placeholder">
+                <span class="glyphicon glyphicon-picture"></span>
+            </div>
+            {% endif %}
+            <div class="post-card-body">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.text|truncatechars:90 }}</p>
+            </div>
+            <div class="post-card-meta">
+                {% if post.published_date %}
+                <span>{{ post.published_date|date:"Y년 n월 j일" }}</span>
+                {% endif %}
+                <span>by <strong>{{ post.author }}</strong></span>
+            </div>
+        </a>
+        {% empty %}
+        <p class="empty-search">검색 결과가 없습니다.</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<script>
+    const searchInput = document.querySelector('.search-form input[name="q"]');
+    if (searchInput) {
+        const valueLength = searchInput.value.length;
+        searchInput.focus();
+        searchInput.setSelectionRange(valueLength, valueLength);
+    }
+</script>
+{% endblock %}

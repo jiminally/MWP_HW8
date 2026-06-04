@@ -1,18 +1,29 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="post">
-    {% if post.published_date %}
-    <div class="date">
-        {{ post.published_date }}
-    </div>
-    {% endif %}
-    {% if user.is_authenticated %}
-    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
-        <span class="glyphicon glyphicon-pencil"></span>
-    </a>
-    {% endif %}
+<article class="post-detail">
     <h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaksbr }}</p>
-</div>
+    <div class="post-detail-meta-row">
+        <div class="post-detail-meta">
+            <strong>{{ post.author }}</strong>
+            {% if post.published_date %}
+            <span>{{ post.published_date|date:"Y년 n월 j일" }}</span>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+        <div class="post-detail-actions">
+            <a href="{% url 'post_edit' pk=post.pk %}">수정</a>
+            <form method="POST" action="{% url 'post_delete' pk=post.pk %}">{% csrf_token %}
+                <button type="submit">삭제</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    <div class="post-detail-text">
+        {{ post.text|linebreaksbr }}
+    </div>
+    {% if post.image and post.image.name != 'intruder_image/default_error.png' %}
+    <img src="{{ post.image.url }}" class="post-detail-image" alt="{{ post.title }}">
+    {% endif %}
+</article>
 {% endblock %}
