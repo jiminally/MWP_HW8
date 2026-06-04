@@ -13,10 +13,12 @@
             <a class="site-title" href="/">Jimin.blog</a>
             <div class="header-actions">
                 <a class="search-button" href="{% url 'post_search' %}" aria-label="검색">
-                    <span class="glyphicon glyphicon-search"></span>
+                    <img src="{% static 'icons/search.svg' %}" alt="">
                 </a>
             {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="new-post-button">새 글 작성</a>
+                <a href="{% url 'post_new' %}" class="new-post-button" aria-label="새 글 작성">
+                    <img src="{% static 'icons/post.svg' %}" alt="">
+                </a>
             {% endif %}
             </div>
         </div>
